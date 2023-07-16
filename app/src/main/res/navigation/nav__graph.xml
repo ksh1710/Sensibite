@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav__graph"
+    app:startDestination="@id/homeFrag">
+
+    <fragment
+        android:id="@+id/homeFrag"
+        android:name="com.example.innogeeks_team_project.homeFrag"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/scanFrag"
+        android:name="com.example.innogeeks_team_project.scanFrag"
+        android:label="fragment_scan"
+        tools:layout="@layout/fragment_scan" />
+    <fragment
+        android:id="@+id/reportsFrag"
+        android:name="com.example.innogeeks_team_project.reportsFrag"
+        android:label="fragment_reports"
+        tools:layout="@layout/fragment_reports" />
+    <fragment
+        android:id="@+id/profileFrag"
+        android:name="com.example.innogeeks_team_project.profileFrag"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
