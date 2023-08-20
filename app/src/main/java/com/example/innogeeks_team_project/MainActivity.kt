@@ -13,10 +13,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         val navHostFrag = supportFragmentManager.findFragmentById(R.id.mainFrag) as NavHostFragment
         myNavController = navHostFrag.navController
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavBar)
-        setupWithNavController(bottomNavBar,myNavController)
+        setupWithNavController(bottomNavBar, myNavController)
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.mainFrag,
+                    scannerFragment()
+                ) // Replace 'fragmentContainer' with your fragment container ID
+                .commit()
+        }
     }
 }

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".scanFrag">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Scanner" />
+    <Button
+        android:id="@+id/btnhu"
+        android:layout_width="wrap_content"
+        android:text="krdo click plizz"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content" />
 
 </FrameLayout>
