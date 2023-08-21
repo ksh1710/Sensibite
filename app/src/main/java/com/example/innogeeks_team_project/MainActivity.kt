@@ -18,12 +18,5 @@ class MainActivity : AppCompatActivity() {
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavBar)
         setupWithNavController(bottomNavBar, myNavController)
 
-
-//        if (savedInstanceState == null) {
-//            supportFragmentManager.beginTransaction()
-//                .replace(R.id.fragmentContainer, scannerFragment()) // Replace 'fragmentContainer' with your fragment container ID
-//                .commit()
-//        }
-
          }
 }

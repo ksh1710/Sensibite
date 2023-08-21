@@ -23,6 +23,7 @@ import com.example.innogeeks_team_project.models.itemDetails
 import com.example.innogeeks_team_project.repository.itemRepo
 import com.example.innogeeks_team_project.viewmodels.mainViewModel
 import com.example.innogeeks_team_project.viewmodels.mainViewModelFactory
+import com.google.mlkit.vision.barcode.common.Barcode
 
 class scanFrag : Fragment() {
     lateinit var mainviewmodel: mainViewModel
@@ -33,7 +34,21 @@ class scanFrag : Fragment() {
     private val resultactivitylauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) {
             if (it) {
-                scannerFragment.startScanner(this.requireContext()) {}
+                scannerFragment.startScanner(this.requireContext()) { barcodes ->
+                    barcodes.forEach { barcode ->
+                        when (barcode.valueType) {
+                            Barcode.TYPE_TEXT -> {
+
+                            }
+
+                            else -> {
+                                Toast.makeText(this.context, "working", Toast.LENGTH_SHORT).show()
+                                binding.resTV.text = barcode.rawValue.toString()
+                            }
+                        }
+                    }
+
+                }
             }
         }
 
@@ -43,6 +58,9 @@ class scanFrag : Fragment() {
     ): View? {
         _binding = FragmentScanBinding.inflate(inflater, container, false)
         val view = binding.root
+        val transaction = childFragmentManager.beginTransaction()
+        transaction.replace(R.id.raita, scannerFragment())
+        transaction.commit()
 
         return view
     }
@@ -50,10 +68,6 @@ class scanFrag : Fragment() {
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val nestedFragment = scanFrag()
-        val transaction = childFragmentManager.beginTransaction()
-        transaction.replace(R.id.raita, scannerFragment())
-        transaction.commit()
 
         val service = helper.getInstance().create(apiservice::class.java)
         val repo = itemRepo(service)
@@ -63,11 +77,14 @@ class scanFrag : Fragment() {
 
 
         binding.btnhu.setOnClickListener {
+
             requestcameraandstartScanner()
+
         }
         mainviewmodel.selectItem("3017620422003")
 
         mainviewmodel.fooditem.observe(viewLifecycleOwner, Observer { task ->
+
             Log.d("idk", task.product.allergens)
 
 
@@ -79,7 +96,20 @@ class scanFrag : Fragment() {
 
     private fun requestcameraandstartScanner() {
         if (requireActivity().isPermissionGranted(camerapermission)) {
-            scannerFragment.startScanner(this.requireContext()) {}
+            scannerFragment.startScanner(this.requireContext()) { barcodes ->
+                barcodes.forEach { barcode ->
+                    when (barcode.valueType) {
+                        Barcode.TYPE_TEXT -> {
+
+                        }
+
+                        else -> {
+                            Toast.makeText(this.context, "working", Toast.LENGTH_SHORT).show()
+                            binding.resTV.text = barcode.rawValue.toString()
+                        }
+                    }
+                }
+            }
         } else {
             requestCameraPermissionn()
         }
