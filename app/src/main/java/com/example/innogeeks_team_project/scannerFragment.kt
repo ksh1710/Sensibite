@@ -49,6 +49,7 @@ class scannerFragment : Fragment() {
                 bindCameraPreview()
             }, ContextCompat.getMainExecutor(this.requireContext())
         )
+
     }
 
     private fun bindCameraPreview() {

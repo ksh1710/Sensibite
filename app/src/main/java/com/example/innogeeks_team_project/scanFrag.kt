@@ -43,12 +43,17 @@ class scanFrag : Fragment() {
     ): View? {
         _binding = FragmentScanBinding.inflate(inflater, container, false)
         val view = binding.root
+
         return view
     }
 
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val nestedFragment = scanFrag()
+        val transaction = childFragmentManager.beginTransaction()
+        transaction.replace(R.id.raita, scannerFragment())
+        transaction.commit()
 
         val service = helper.getInstance().create(apiservice::class.java)
         val repo = itemRepo(service)
