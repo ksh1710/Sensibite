@@ -26,6 +26,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/raita" />
 
+    <TextView
+        android:id="@+id/allergenTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="result"
+        app:layout_constraintBottom_toTopOf="@+id/btnhu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.702"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/raita"
+        app:layout_constraintVertical_bias="0.803" />
+
     <Button
         android:id="@+id/btnhu"
         android:layout_width="wrap_content"
@@ -34,7 +46,17 @@
         android:text="krdo click plizz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/dusrabtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="daata toast"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnhu"
+        app:layout_constraintTop_toTopOf="@+id/btnhu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

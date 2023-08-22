@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,7 @@ import androidx.camera.core.ImageProxy
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
-import com.example.innogeeks_team_project.databinding.FragmentScanBinding
+import androidx.fragment.app.Fragment
 import com.example.innogeeks_team_project.databinding.FragmentScannerBinding
 import com.google.common.util.concurrent.ListenableFuture
 import com.google.mlkit.vision.barcode.BarcodeScanner
@@ -38,6 +37,7 @@ class scannerFragment : Fragment() {
 
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,6 +46,7 @@ class scannerFragment : Fragment() {
         val view = binding.root
         return view
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,6 +64,7 @@ class scannerFragment : Fragment() {
 
     }
 
+
     private fun bindinputAnalyser() {
         val barcodeScanner: BarcodeScanner = BarcodeScanning.getClient(
             BarcodeScannerOptions.Builder()
@@ -75,30 +77,34 @@ class scannerFragment : Fragment() {
             .build()
 
         val cameraExecutor = Executors.newSingleThreadExecutor()
-        imageAnalysis.setAnalyzer(cameraExecutor){imageproxy ->
-            processImageProxy(barcodeScanner,imageproxy)
+        imageAnalysis.setAnalyzer(cameraExecutor) { imageproxy ->
+            processImageProxy(barcodeScanner, imageproxy)
         }
 
-        processCameraProvider.bindToLifecycle(this,cameraSelector,imageAnalysis)
+        processCameraProvider.bindToLifecycle(this, cameraSelector, imageAnalysis)
     }
 
+
     @SuppressLint("UnsafeOptInUsageError")
-    private fun processImageProxy(barcodeScanner:BarcodeScanner, imageProxy: ImageProxy){
-val inputImage = InputImage.fromMediaImage(imageProxy.image!!,imageProxy.imageInfo.rotationDegrees)
+    private fun processImageProxy(barcodeScanner: BarcodeScanner, imageProxy: ImageProxy) {
+        val inputImage =
+            InputImage.fromMediaImage(imageProxy.image!!, imageProxy.imageInfo.rotationDegrees)
 
         barcodeScanner.process(inputImage)
-            .addOnSuccessListener {barcodes ->
+            .addOnSuccessListener { barcodes ->
 
-                if (barcodes.isNotEmpty()){
+                if (barcodes.isNotEmpty()) {
                     onScan?.invoke(barcodes)
-                    onScan=null
+                    onScan = null
                 }
             }.addOnFailureListener {
                 it.printStackTrace()
-            }.addOnCompleteListener {
+            }
+            .addOnCompleteListener {
                 imageProxy.close()
             }
     }
+
 
     private fun bindCameraPreview() {
         cameraPreview = Preview.Builder()
@@ -112,15 +118,14 @@ val inputImage = InputImage.fromMediaImage(imageProxy.image!!,imageProxy.imageIn
 
 
     companion object {
-        private var onScan: ((barcodes:List<Barcode>) -> Unit)? = null
-        fun startScanner(context: Context, onScan: (barcodes:List<Barcode>) -> Unit) {
+        private var onScan: ((barcodes: List<Barcode>) -> Unit)? = null
+        fun startScanner(context: Context, onScan: (barcodes: List<Barcode>) -> Unit) {
             this.onScan = onScan
-            Intent(context, MainActivity::class.java).also {
-                context.startActivity(it)
-            }
+
         }
     }
 
 }
+
 
 

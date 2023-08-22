@@ -1,32 +1,31 @@
 package com.example.innogeeks_team_project
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.innogeeks_team_project.api.apiservice
 import com.example.innogeeks_team_project.api.helper
 import com.example.innogeeks_team_project.databinding.FragmentScanBinding
+import com.example.innogeeks_team_project.models.Product
 import com.example.innogeeks_team_project.models.itemDetails
 import com.example.innogeeks_team_project.repository.itemRepo
 import com.example.innogeeks_team_project.viewmodels.mainViewModel
 import com.example.innogeeks_team_project.viewmodels.mainViewModelFactory
 import com.google.mlkit.vision.barcode.common.Barcode
 
+@Suppress("DEPRECATION")
 class scanFrag : Fragment() {
     lateinit var mainviewmodel: mainViewModel
+    private var BC: String = "8906002001118"
     private var _binding: FragmentScanBinding? = null
     private val binding get() = _binding!!
 
@@ -44,6 +43,10 @@ class scanFrag : Fragment() {
                             else -> {
                                 Toast.makeText(this.context, "working", Toast.LENGTH_SHORT).show()
                                 binding.resTV.text = barcode.rawValue.toString()
+                                BC = barcode.rawValue.toString()
+                                Log.d("idk", BC)
+
+
                             }
                         }
                     }
@@ -55,14 +58,10 @@ class scanFrag : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentScanBinding.inflate(inflater, container, false)
-        val view = binding.root
-        val transaction = childFragmentManager.beginTransaction()
-        transaction.replace(R.id.raita, scannerFragment())
-        transaction.commit()
 
-        return view
+        return binding.root
     }
 
     @SuppressLint("UseRequireInsteadOfGet")
@@ -77,35 +76,50 @@ class scanFrag : Fragment() {
 
 
         binding.btnhu.setOnClickListener {
-
-            requestcameraandstartScanner()
+            val transaction = childFragmentManager.beginTransaction()
+            transaction.replace(R.id.raita, scannerFragment())
+            transaction.commit()
+            requestCameraAndStartScanner()
 
         }
-        mainviewmodel.selectItem("3017620422003")
-
-        mainviewmodel.fooditem.observe(viewLifecycleOwner, Observer { task ->
-
-            Log.d("idk", task.product.allergens)
 
 
+
+
+        binding.dusrabtn.setOnClickListener {
+            Log.d("idk", BC)
+            mainviewmodel.selectItem(BC)
+//            binding.allergenTV.text  = mainviewmodel.fooditem.value?.product?.brands
+            Log.d("idk", mainviewmodel.fooditem.value.toString())
+
+        }
+
+
+
+        mainviewmodel.fooditem.observe(viewLifecycleOwner, Observer {
+            Log.d("idk",it.toString())
+            binding.allergenTV.text = it
+            Log.d("idk", it.toString())
         })
-
 
     }
 
 
-    private fun requestcameraandstartScanner() {
+    private fun requestCameraAndStartScanner() {
+
         if (requireActivity().isPermissionGranted(camerapermission)) {
             scannerFragment.startScanner(this.requireContext()) { barcodes ->
                 barcodes.forEach { barcode ->
                     when (barcode.valueType) {
                         Barcode.TYPE_TEXT -> {
-
                         }
 
                         else -> {
                             Toast.makeText(this.context, "working", Toast.LENGTH_SHORT).show()
                             binding.resTV.text = barcode.rawValue.toString()
+                            BC = barcode.rawValue.toString()
+                            Log.d("idk", BC)
+
                         }
                     }
                 }

@@ -1,7 +1,7 @@
 package com.example.innogeeks_team_project.models
 
 data class itemDetails(
-    val code: String,
+    var code: String,
     val product: Product
 
 )
