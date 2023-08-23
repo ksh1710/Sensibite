@@ -23,7 +23,7 @@ class mainViewModel(private val repository: itemRepo) : ViewModel() {
     }
 
     //    val fooditem: LiveData<itemDetails> = repository.fooditem.javaClass.newInstance()
-    val fooditem: LiveData<String> = barcode
+    val fooditem: LiveData<String> get() = barcode
 
 
 }

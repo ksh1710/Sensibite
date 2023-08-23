@@ -98,7 +98,7 @@ class scanFrag : Fragment() {
 
         mainviewmodel.fooditem.observe(viewLifecycleOwner, Observer {
             Log.d("idk",it.toString())
-            binding.allergenTV.text = it
+            binding.allergenTV.text = repo.fooditem.value?.product?.brands.toString()
             Log.d("idk", it.toString())
         })
 
@@ -119,7 +119,6 @@ class scanFrag : Fragment() {
                             binding.resTV.text = barcode.rawValue.toString()
                             BC = barcode.rawValue.toString()
                             Log.d("idk", BC)
-
                         }
                     }
                 }
