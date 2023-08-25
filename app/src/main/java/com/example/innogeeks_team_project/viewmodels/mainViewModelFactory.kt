@@ -2,11 +2,21 @@ package com.example.innogeeks_team_project.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.innogeeks_team_project.api.ApiService
 import com.example.innogeeks_team_project.repository.itemRepo
-
+//
+//@Suppress("UNCHECKED_CAST")
+//class mainViewModelFactory(private val repository:itemRepo): ViewModelProvider.Factory {
+//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+//        return ProductViewModel(repository) as T
+//    }
+//}
 @Suppress("UNCHECKED_CAST")
-class mainViewModelFactory(private val repository:itemRepo): ViewModelProvider.Factory {
+class ProductViewModelFactory(private val apiService: ApiService) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return mainViewModel(repository) as T
+        if (modelClass.isAssignableFrom(ProductViewModel::class.java)) {
+            return ProductViewModel(apiService) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

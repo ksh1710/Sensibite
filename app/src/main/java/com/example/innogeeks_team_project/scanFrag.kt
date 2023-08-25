@@ -11,21 +11,19 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
-import com.example.innogeeks_team_project.api.apiservice
+import com.example.innogeeks_team_project.api.ApiService
 import com.example.innogeeks_team_project.api.helper
 import com.example.innogeeks_team_project.databinding.FragmentScanBinding
-import com.example.innogeeks_team_project.models.Product
-import com.example.innogeeks_team_project.models.itemDetails
 import com.example.innogeeks_team_project.repository.itemRepo
-import com.example.innogeeks_team_project.viewmodels.mainViewModel
-import com.example.innogeeks_team_project.viewmodels.mainViewModelFactory
+import com.example.innogeeks_team_project.viewmodels.ProductViewModel
+import com.example.innogeeks_team_project.viewmodels.ProductViewModelFactory
 import com.google.mlkit.vision.barcode.common.Barcode
+import retrofit2.http.Path
 
 @Suppress("DEPRECATION")
 class scanFrag : Fragment() {
-    lateinit var mainviewmodel: mainViewModel
-    private var BC: String = "8906002001118"
+    lateinit var mainviewmodel: ProductViewModel
+    private var BC: String = "737628064502"
     private var _binding: FragmentScanBinding? = null
     private val binding get() = _binding!!
 
@@ -68,10 +66,10 @@ class scanFrag : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val service = helper.getInstance().create(apiservice::class.java)
+        val service = helper.getInstance().create(ApiService::class.java)
         val repo = itemRepo(service)
         mainviewmodel =
-            ViewModelProvider(this, mainViewModelFactory(repo)).get(mainViewModel::class.java)
+            ViewModelProvider(this, ProductViewModelFactory(service)).get(ProductViewModel::class.java)
 
 
 
@@ -83,24 +81,43 @@ class scanFrag : Fragment() {
 
         }
 
-
-
-
         binding.dusrabtn.setOnClickListener {
             Log.d("idk", BC)
-            mainviewmodel.selectItem(BC)
+
+//            itemRepo(service).getFoodItem(
+            mainviewmodel.fetchProductDetails(BC)
+
 //            binding.allergenTV.text  = mainviewmodel.fooditem.value?.product?.brands
-            Log.d("idk", mainviewmodel.fooditem.value.toString())
+//            Log.d("idk", mainviewmodel.fooditem.value.toString())
+//            binding.allergenTV.text = repo.fooditem.value?.product?.brands
+
 
         }
 
 
+        mainviewmodel.productDetails.observe(viewLifecycleOwner){productDetails ->
 
-        mainviewmodel.fooditem.observe(viewLifecycleOwner, Observer {
-            Log.d("idk",it.toString())
-            binding.allergenTV.text = repo.fooditem.value?.product?.brands.toString()
-            Log.d("idk", it.toString())
-        })
+//            Log.d("idk-2", it.toString())
+            binding.allergenTV.text  = productDetails.product.brands
+//            Log.d("idk-2", it?.product?.brands!!)
+        }
+
+//        mainviewmodel.fooditem.observe(viewLifecycleOwner, Observer { itemDetails ->
+//            if (itemDetails != null) {
+//                Log.d("idk-2", itemDetails.toString())
+//                binding.allergenTV.text = itemDetails.code
+
+                // Ensure product and brands are not null before accessing them
+//                val productBrands = itemDetails.product.brands
+//                if (productBrands != null) {
+//                    Log.d("idk-2", productBrands)
+//                } else {
+//                    Log.d("idk-2", "Product brands are null")
+//                }
+//            } else {
+//                Log.d("idk-2", "Item details are null")
+//            }
+//        })
 
     }
 
@@ -139,5 +156,6 @@ class scanFrag : Fragment() {
 
         }
     }
+
 }
 
