@@ -6,4 +6,13 @@
     </style>
 
     <style name="Theme.Innogeeks_team_project" parent="Base.Theme.Innogeeks_team_project" />
+
+    <style name="Theme.Innogeeks_team_project.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Innogeeks_team_project.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Innogeeks_team_project.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

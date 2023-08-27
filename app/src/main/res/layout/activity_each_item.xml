@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="196dp"
+        android:src="@drawable/bananachips"
+        tools:layout_editor_absoluteX="-20dp"
+        tools:layout_editor_absoluteY="3dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="170dp"
+        android:layout_height="36dp"
+        android:text="    BANANA CHIPS"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="225dp"
+        tools:layout_editor_absoluteY="13dp"
+        android:textSize="18dp"/>
+
+    <TextView
+        android:layout_width="201dp"
+        android:layout_height="59dp"
+        android:text="These chips are naturally \n gluten-free and have no \n artificial ingredients. "
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="49dp" />
+
+    <TextView
+        android:layout_width="205dp"
+        android:layout_height="60dp"
+        android:text="           MRP : Rs 20"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="108dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_on_primary"
+        android:text="BUY NOW "
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="248dp"
+        tools:layout_editor_absoluteY="133dp" />
+
+    <!--    <ImageView-->
+<!--        android:layout_width="252dp"-->
+<!--        android:layout_height="191dp"-->
+<!--        android:src="@drawable/walnuts"-->
+<!--        tools:layout_editor_absoluteX="-35dp"-->
+<!--        tools:layout_editor_absoluteY="226dp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Walnuts are rich in nutrients. \nThey deliver healty fats. \nThey reduce blood pressure,\noffer cancer protection , \nand regulate weight."-->
+<!--        android:textStyle="bold"-->
+<!--        tools:layout_editor_absoluteX="221dp"-->
+<!--        tools:layout_editor_absoluteY="248dp" />-->
+
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/design_default_color_on_primary"-->
+<!--        android:text="BUY NOW "-->
+<!--        android:textColor="@color/black"-->
+<!--        tools:layout_editor_absoluteX="258dp"-->
+<!--        tools:layout_editor_absoluteY="352dp"/>-->
+
+<!--    <ImageView-->
+<!--        android:layout_width="212dp"-->
+<!--        android:layout_height="180dp"-->
+<!--        android:src="@drawable/kidneybeans"-->
+<!--        tools:layout_editor_absoluteX="-1dp"-->
+<!--        tools:layout_editor_absoluteY="456dp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="It prevent cancer , lowers \n cholestrol , regulate weight\nmanagement , lowers \ncholestrol and it improves \nmemory . "-->
+<!--        android:textStyle="bold"-->
+<!--        tools:layout_editor_absoluteX="221dp"-->
+<!--        tools:layout_editor_absoluteY="476dp" />-->
+
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/design_default_color_on_primary"-->
+<!--        android:text="BUY NOW "-->
+<!--        android:textColor="@color/black"-->
+<!--        tools:layout_editor_absoluteX="251dp"-->
+<!--        tools:layout_editor_absoluteY="572dp"-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
