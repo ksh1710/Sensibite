@@ -1,5 +1,6 @@
 package com.example.innogeeks_team_project
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.Shapeable
 
-class MyAdapter(private val foodList: ArrayList<food>) : RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+class MyAdapter(private val foodList: ArrayList<food>) :
+    RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
 
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
       val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent,false)
         return MyViewHolder(itemView)
@@ -19,8 +22,8 @@ class MyAdapter(private val foodList: ArrayList<food>) : RecyclerView.Adapter<My
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = foodList[position]
-        holder.banana.setImageResource(currentItem.)
-        holder.textView2.text = currentItem.
+        holder.banana.setImageResource(currentItem.foodImage)
+        holder.textView2.text = currentItem.foodName
     }
 
     override fun getItemCount(): Int {
