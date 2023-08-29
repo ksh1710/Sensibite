@@ -5,11 +5,13 @@
     android:layout_height="match_parent" >
 
     <ImageView
+        android:id="@+id/banana"
         android:layout_width="240dp"
         android:layout_height="196dp"
         android:src="@drawable/bananachips"
         tools:layout_editor_absoluteX="-20dp"
-        tools:layout_editor_absoluteY="3dp" />
+        tools:layout_editor_absoluteY="3dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView2"
@@ -19,14 +21,16 @@
         android:textStyle="bold"
         tools:layout_editor_absoluteX="225dp"
         tools:layout_editor_absoluteY="13dp"
-        android:textSize="18dp"/>
+        android:textSize="18dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="201dp"
         android:layout_height="59dp"
         android:text="These chips are naturally \n gluten-free and have no \n artificial ingredients. "
         tools:layout_editor_absoluteX="224dp"
-        tools:layout_editor_absoluteY="49dp" />
+        tools:layout_editor_absoluteY="49dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="205dp"
@@ -34,7 +38,8 @@
         android:text="           MRP : Rs 20"
         tools:layout_editor_absoluteX="224dp"
         tools:layout_editor_absoluteY="108dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:layout_width="wrap_content"
@@ -43,7 +48,8 @@
         android:text="BUY NOW "
         android:textColor="@color/black"
         tools:layout_editor_absoluteX="248dp"
-        tools:layout_editor_absoluteY="133dp" />
+        tools:layout_editor_absoluteY="133dp"
+        tools:ignore="MissingConstraints" />
 
     <!--    <ImageView-->
 <!--        android:layout_width="252dp"-->
