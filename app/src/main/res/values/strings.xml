@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Innogeeks_team_project</string>
+    <string name="app_name">SensiBite</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_each_item">each_item</string>
