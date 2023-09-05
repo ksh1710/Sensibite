@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--<ScrollView -->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    >-->
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,92 +13,80 @@
 
     <FrameLayout
         android:id="@+id/raita"
-        android:layout_width="381dp"
-        android:layout_height="279dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnhu"
+        android:layout_width="308dp"
+        android:layout_height="208dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.074" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Barcode Value:"
+        app:layout_constraintEnd_toStartOf="@+id/resTV"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/raita" />
 
     <TextView
         android:id="@+id/resTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/btnhu"
+        android:layout_marginTop="20dp"
+        android:hint="results of barcode scan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/raita" />
 
     <TextView
         android:id="@+id/allergenTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="result"
-        app:layout_constraintBottom_toTopOf="@+id/btnhu"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.702"
+        app:layout_constraintHorizontal_bias="0.242"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/raita"
-        app:layout_constraintVertical_bias="0.803" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <ImageView
-        android:id="@+id/imgViu"
-        android:layout_width="250dp"
-        android:layout_height="297dp"
-        android:layout_marginBottom="3dp"
-        app:layout_constraintBottom_toTopOf="@+id/mlbtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/raita" />
-
-    <TextView
-        android:id="@+id/naam"
-        android:layout_width="150dp"
-        android:hint="naam"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/allergenTV"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/raita" />
-    <Button
-        android:id="@+id/mlbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="12dp"
-        android:text="ml wala button"
-        app:layout_constraintBottom_toTopOf="@+id/btnhu"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/imgbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="img laane wala"
-        app:layout_constraintBottom_toTopOf="@+id/dusrabtn"
-        app:layout_constraintEnd_toEndOf="parent" />
     <Button
         android:id="@+id/btnhu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:layout_gravity="center"
-        android:text="krdo click plizz"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
+        android:text="Open Scanner"
+        app:layout_constraintBottom_toTopOf="@+id/UnpackedBtn"
+        app:layout_constraintEnd_toStartOf="@+id/dusrabtn"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/dusrabtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="daata toast"
+        android:text="Fetch Results"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/UnpackedBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnhu" />
+
+    <Button
+        android:id="@+id/UnpackedBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan Unpacked Food Item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnhu"
-        app:layout_constraintTop_toTopOf="@+id/btnhu" />
-
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--</ScrollView>-->

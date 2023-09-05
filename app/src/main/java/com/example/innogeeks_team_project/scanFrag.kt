@@ -30,8 +30,6 @@ import java.util.Locale.Category
 @Suppress("DEPRECATION")
 class scanFrag : Fragment() {
 
-
-    lateinit var bitmap: Bitmap
     lateinit var mainviewmodel: ProductViewModel
     private var BC: String = "737628064502"
     private var _binding: FragmentScanBinding? = null
@@ -86,6 +84,12 @@ class scanFrag : Fragment() {
 
 
 
+        binding.UnpackedBtn.setOnClickListener {
+            val intent: Intent = Intent(activity, unpackedScannerActivity::class.java)
+            startActivity(intent)
+        }
+
+
         binding.btnhu.setOnClickListener {
             val transaction = childFragmentManager.beginTransaction()
             transaction.replace(R.id.raita, scannerFragment())
@@ -97,76 +101,15 @@ class scanFrag : Fragment() {
         binding.dusrabtn.setOnClickListener {
             Log.d("idk", BC)
 
-//            itemRepo(service).getFoodItem(
             mainviewmodel.fetchProductDetails(BC)
-
-//            binding.allergenTV.text  = mainviewmodel.fooditem.value?.product?.brands
-//            Log.d("idk", mainviewmodel.fooditem.value.toString())
-//            binding.allergenTV.text = repo.fooditem.value?.product?.brands
-
-
         }
 
 
         mainviewmodel.productDetails.observe(viewLifecycleOwner) { productDetails ->
-
-//            Log.d("idk-2", it.toString())
             binding.allergenTV.text = productDetails.product.brands
-//            Log.d("idk-2", it?.product?.brands!!)
         }
 
-//        mainviewmodel.fooditem.observe(viewLifecycleOwner, Observer { itemDetails ->
-//            if (itemDetails != null) {
-//                Log.d("idk-2", itemDetails.toString())
-//                binding.allergenTV.text = itemDetails.code
-
-        // Ensure product and brands are not null before accessing them
-//                val productBrands = itemDetails.product.brands
-//                if (productBrands != null) {
-//                    Log.d("idk-2", productBrands)
-//                } else {
-//                    Log.d("idk-2", "Product brands are null")
-//                }
-//            } else {
-//                Log.d("idk-2", "Item details are null")
-//            }
-//        })
-        binding.imgbtn.setOnClickListener {
-            val intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.type = "image/*"
-            startActivityForResult(intent, 420)
-        }
-
-
-        binding.mlbtn.setOnClickListener {
-            val model = LiteModelAiyVisionClassifierFoodV11.newInstance(context!!)
-            val image = TensorImage.fromBitmap(bitmap)
-
-            val outputs = model.process(image).probabilityAsCategoryList.apply {
-                sortByDescending {
-                    it.score
-                }
-            }
-            val probabilityOP = outputs[0]
-            binding.naam.text = probabilityOP.label
-            Log.d("idk", outputs.toString())
-            Log.d("idk", probabilityOP.label.toString())
-            model.close()
-
-        }
     }
-
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 420) {
-            var uri = data?.data
-            bitmap = MediaStore.Images.Media.getBitmap(activity?.contentResolver, uri)
-            binding.imgViu.setImageBitmap(bitmap)
-
-        }
-    }
-
 
     private fun requestCameraAndStartScanner() {
 
