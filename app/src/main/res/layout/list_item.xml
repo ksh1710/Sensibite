@@ -1,62 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+
+    android:layout_height="200dp"
+    android:layout_marginEnd="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <ImageView
-            android:id="@+id/banana"
-            android:layout_width="240dp"
-            android:layout_height="196dp"
-            android:src="@drawable/bananachips"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="-20dp"
-            tools:layout_editor_absoluteY="3dp" />
+            android:id="@+id/proimg"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/proDetails"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo"
+            tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/proTitle"
             android:layout_width="170dp"
-            android:layout_height="36dp"
-            android:text="    BANANA CHIPS"
+            android:layout_height="wrap_content"
+            android:text="BANANA CHIPS"
+            android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="225dp"
-            tools:layout_editor_absoluteY="13dp" />
+            app:layout_constraintBottom_toTopOf="@+id/proDetails"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="MissingConstraints" />
 
         <TextView
-            android:layout_width="201dp"
-            android:layout_height="59dp"
-            android:text="These chips are naturally \n gluten-free and have no \n artificial ingredients. "
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="224dp"
-            tools:layout_editor_absoluteY="49dp" />
-
-        <TextView
-            android:layout_width="205dp"
-            android:layout_height="60dp"
-            android:text="           MRP : Rs 20"
+            android:id="@+id/proPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:text="MRP : ₹ 40"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="224dp"
-            tools:layout_editor_absoluteY="108dp" />
+            app:layout_constraintBottom_toTopOf="@+id/buyBtn"
+            app:layout_constraintStart_toStartOf="@+id/proDetails"
+            app:layout_constraintTop_toBottomOf="@+id/proDetails"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/proDetails"
+            android:layout_width="164dp"
+            android:layout_height="52dp"
+
+            android:text="These chips are naturally \n gluten-free and have no \n artificial ingredients. "
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/proPrice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/proTitle"
+            app:layout_constraintTop_toBottomOf="@+id/proTitle"
+            tools:ignore="MissingConstraints" />
 
         <Button
+            android:id="@+id/buyBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="49dp"
             android:background="@color/design_default_color_on_primary"
             android:text="BUY NOW "
-            android:textColor="@color/black"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="248dp"
-            tools:layout_editor_absoluteY="133dp" />
+            android:textColor="@color/white"
+            app:backgroundTint="#53521C"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/proimg"
+            app:layout_constraintTop_toBottomOf="@+id/proDetails" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
-
 

@@ -41,7 +41,6 @@ class unpackedScannerActivity : AppCompatActivity() {
             Log.d("idk", outputs.toString())
             Log.d("idk", probabilityOP.label.toString())
             model.close()
-
         }
     }
 

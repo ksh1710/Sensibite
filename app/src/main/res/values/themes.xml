@@ -15,4 +15,7 @@
     <style name="Theme.Innogeeks_team_project.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Innogeeks_team_project.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+
 </resources>

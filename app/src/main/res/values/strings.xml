@@ -11,4 +11,12 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+    <string name="str1">Something</string>
+    <string name="str2">Something</string>
+    <string name="str3">Something</string>
+    <string name="str4">Something</string>
+    <string name="price">MRP : ₹ 40</string>
+    <string name="det">These chips are naturally gluten-free and have no artificial ingredients. </string>
 </resources>
