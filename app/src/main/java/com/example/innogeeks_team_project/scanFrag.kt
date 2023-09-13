@@ -106,7 +106,9 @@ class scanFrag : Fragment() {
 
 
         mainviewmodel.productDetails.observe(viewLifecycleOwner) { productDetails ->
-            binding.allergenTV.text = productDetails.product.brands
+            binding.brandTV.text = productDetails.product.brands
+            binding.categoryTV.text = productDetails.product.categories
+            binding.allergenTV.text = productDetails.product.allergens_from_ingredients
         }
 
     }

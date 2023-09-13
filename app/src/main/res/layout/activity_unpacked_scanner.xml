@@ -24,8 +24,22 @@
         android:hint="naam"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgViu" />
+        app:layout_constraintTop_toBottomOf="@+id/imgViu"
+        app:layout_constraintVertical_bias="0.193" />
+
+    <Button
+        android:id="@+id/cameraBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open Camera"
+        app:layout_constraintBottom_toTopOf="@+id/imgbtn"
+        app:layout_constraintEnd_toEndOf="@+id/imgbtn"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imgbtn"
+        app:layout_constraintTop_toBottomOf="@+id/naam"
+        app:layout_constraintVertical_bias="0.854" />
 
     <Button
         android:id="@+id/imgbtn"
