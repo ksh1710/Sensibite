@@ -36,7 +36,7 @@ class unpackedScannerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityUnpackedScannerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-            getPerm()
+        getPerm()
 
         binding.imgbtn.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
@@ -52,8 +52,11 @@ class unpackedScannerActivity : AppCompatActivity() {
 
 
         binding.mlbtn.setOnClickListener {
+            binding.avoidTV.text = " "
+            binding.diseaseTV.text = " "
+            binding.allergenTV.text = " "
             val model = LiteModelAiyVisionClassifierFoodV11.newInstance(this)
-            bitmap = Bitmap.createScaledBitmap(bitmap,224,224,true)
+            bitmap = Bitmap.createScaledBitmap(bitmap, 224, 224, true)
             val image = TensorImage.fromBitmap(bitmap)
 
             val outputs = model.process(image).probabilityAsCategoryList.apply {
@@ -63,8 +66,21 @@ class unpackedScannerActivity : AppCompatActivity() {
             }
             val probabilityOP = outputs[0]
             binding.naam.text = probabilityOP.label
-            Log.d("idk", outputs.toString())
-            Log.d("idk", probabilityOP.label.toString())
+
+            if (probabilityOP.label == "Cheese sandwich") {
+                binding.avoidTV.text = "Suffering from phenylketonuria, gluten sensitivity or Lactose Intolerance"
+                binding.diseaseTV.text = "Celiac disease(by wheat)\n, itching, hives(in mild cases) or anaphylaxis(severe)"
+                binding.allergenTV.text = "Casein (cheese)\n Gluten (bread) \n Glycinin(Soy)"
+            }
+
+            else if (probabilityOP.label == "Samosa") {
+                binding.avoidTV.text = "Suffering from Irritable Bowel Syndrome,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease"
+                binding.diseaseTV.text = "Celiac disease(by wheat)\nskin reactions (hives, itching), gastrointestinal symptoms (nausea, vomiting, diarrhea), respiratory issues (coughing, wheezing), and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
+                binding.allergenTV.text = "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
+
+            } else {
+                Toast.makeText(this, "no information for this item", Toast.LENGTH_SHORT).show()
+            }
             model.close()
         }
     }
@@ -72,7 +88,11 @@ class unpackedScannerActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     private fun getPerm() {
         if (checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA), 11)
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.CAMERA),
+                11
+            )
         }
     }
 

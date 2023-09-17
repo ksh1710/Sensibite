@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.imageview.ShapeableImageView
+import com.example.innogeeks_team_project.models.productcard
 
 class homeAdapter(private val itemList: ArrayList<productcard>) :
     RecyclerView.Adapter<homeAdapter.myViewHolder>() {

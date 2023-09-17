@@ -17,68 +17,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-//class mainViewModel(private val repository: itemRepo) : ViewModel() {
-//    private var barcode = MutableLiveData<String>()
-//    private val _fooditem = MutableLiveData<itemDetails>()
-//    val fooditem: LiveData<itemDetails> = _fooditem
-//
-//    //    private var Strbarcode = MutableLiveData<String>()
-//
-//    fun selectItem(Barcode: String) {
-//        barcode.value = Barcode
-//    }
-//
-//    }
-
-//    init {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            repository.getFoodItem(barcode.toString())
-//            Log.d("idk", fooditem.toString())
-//        }
-//    }
-
-//class mainViewModel(private val repository: itemRepo) : ViewModel() {
-//    // LiveData to hold the barcode
-//    private var barcode = MutableLiveData<String>()
-//
-//    // LiveData to hold the item details
-//    private val _fooditem = MutableLiveData<itemDetails>()
-//    val fooditem: LiveData<itemDetails> = _fooditem
-//
-//    // Function to update the barcode LiveData
-//    fun updateBarcode(newBarcode: String) {
-//        barcode.value = newBarcode
-//    }
-//
-//    fun fetchItemDetails() {
-//        val barcodeValue = barcode.value
-//        if (!barcodeValue.isNullOrEmpty()) {
-//            // Make an API request here using your repository or API service
-//            repository.getFoodItem(barcodeValue, object : Callback<itemDetails> {
-//                override fun onResponse(
-//                    call: Call<itemDetails>,
-//                    response: Response<itemDetails>
-//                ) {
-//                    if (response.isSuccessful) {
-//                        val item = response.body()
-//                        // Update the LiveData with the fetched item details
-//                        _fooditem.postValue(item!!)
-//                    } else {
-//                    Log.d("idk","kuch toh")
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<itemDetails>, t: Throwable) {
-//                    Log.d("idk", t.toString())
-//                }
-//            })
-//        } else {
-//            // Handle the case where the barcodeValue is empty or null
-//        }
-//    }
-//}
-//
-
 
 class ProductViewModel(private val apiService: ApiService) : ViewModel() {
     // LiveData for holding the product details

@@ -8,26 +8,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-//class itemRepo(private val apiservice: apiservice) {
-//
-//    private val foodLiveData = MutableLiveData<itemDetails>()
-//
-//    val fooditem: LiveData<itemDetails>
-//        get() = foodLiveData
-//      fun getFoodItem(barcode: String, param: Callback<itemDetails>){
-//        val result = apiservice.getProduct(barcode)
-//        if (result.body() != null){
-//           foodLiveData.postValue(result.body())
-//        }
-//    }
-//}
-//
-
-//import androidx.lifecycle.LiveData
-//import androidx.lifecycle.MutableLiveData
-//import retrofit2.Call
-//import retrofit2.Callback
-//import retrofit2.Response
 
 class itemRepo(private val apiservice: ApiService) {
 

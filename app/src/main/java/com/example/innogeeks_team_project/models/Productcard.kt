@@ -1,4 +1,4 @@
-package com.example.innogeeks_team_project
+package com.example.innogeeks_team_project.models
 
 import android.widget.Button
 import android.widget.ImageView

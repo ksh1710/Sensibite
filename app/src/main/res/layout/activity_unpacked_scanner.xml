@@ -1,66 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".unpackedScannerActivity">
+    android:background="@color/white">
 
-    <ImageView
-        android:id="@+id/imgViu"
-        android:layout_width="283dp"
-        android:layout_height="289dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".unpackedScannerActivity">
 
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:text="Image to process :"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/naam"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:hint="naam"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.168"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgViu"
-        app:layout_constraintVertical_bias="0.193" />
+        <ImageView
+            android:id="@+id/imgViu"
+            android:layout_width="283dp"
+            android:layout_height="289dp"
+            android:background="@drawable/border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-    <Button
-        android:id="@+id/cameraBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Open Camera"
-        app:layout_constraintBottom_toTopOf="@+id/imgbtn"
-        app:layout_constraintEnd_toEndOf="@+id/imgbtn"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imgbtn"
-        app:layout_constraintTop_toBottomOf="@+id/naam"
-        app:layout_constraintVertical_bias="0.854" />
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detected Item :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView14"
+            app:layout_constraintEnd_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/imgViu" />
 
-    <Button
-        android:id="@+id/imgbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="Open Gallery"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/mlbtn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/naam"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="result"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintTop_toTopOf="@+id/textView9" />
 
-    <Button
-        android:id="@+id/mlbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="ml wala button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imgbtn" />
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Can cause :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView13"
+            app:layout_constraintEnd_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/avoidTV" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:text="Common allergens :"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/cameraBtn"
+            app:layout_constraintTop_toBottomOf="@+id/diseaseTV"
+            tools:layout_editor_absoluteX="28dp" />
+
+        <TextView
+            android:id="@+id/allergenTV"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="result"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/cameraBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toTopOf="@+id/textView13"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/diseaseTV"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="result"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Avoid if :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView10"
+            app:layout_constraintEnd_toEndOf="@+id/textView10"
+            app:layout_constraintStart_toStartOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/naam"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/avoidTV"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="result"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+        <Button
+            android:id="@+id/cameraBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#465D0A"
+            android:textColor="@color/white"
+            android:text="Open Camera"
+            app:layout_constraintBottom_toTopOf="@+id/imgbtn"
+            app:layout_constraintEnd_toEndOf="@+id/imgbtn"
+            app:layout_constraintStart_toStartOf="@+id/imgbtn" />
+
+        <Button
+            android:id="@+id/imgbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:backgroundTint="#465D0A"
+            android:text="Open Gallery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/mlbtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/mlbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Fetch Results"
+            android:backgroundTint="#465D0A"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imgbtn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
