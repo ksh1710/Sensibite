@@ -68,7 +68,7 @@ class unpackedScannerActivity : AppCompatActivity() {
             binding.naam.text = probabilityOP.label
 
             if (probabilityOP.label == "Cheese sandwich") {
-                binding.avoidTV.text = "Suffering from phenylketonuria, gluten sensitivity or Lactose Intolerance"
+                binding.avoidTV.text = "Suffering from phenylketonuria, gluten sensitivity or Lactose Intolerance\n"
                 binding.diseaseTV.text = "Celiac disease(by wheat)\n, itching, hives(in mild cases) or anaphylaxis(severe)"
                 binding.allergenTV.text = "Casein (cheese)\n Gluten (bread) \n Glycinin(Soy)"
             }

@@ -43,7 +43,6 @@ class scanFrag : Fragment() {
                     barcodes.forEach { barcode ->
                         when (barcode.valueType) {
                             Barcode.TYPE_TEXT -> {
-
                             }
 
                             else -> {
@@ -51,12 +50,9 @@ class scanFrag : Fragment() {
                                 binding.resTV.text = barcode.rawValue.toString()
                                 BC = barcode.rawValue.toString()
                                 Log.d("idk", BC)
-
-
                             }
                         }
                     }
-
                 }
             }
         }
@@ -99,11 +95,9 @@ class scanFrag : Fragment() {
         }
 
         binding.dusrabtn.setOnClickListener {
-            Log.d("idk", BC)
 
             mainviewmodel.fetchProductDetails(BC)
         }
-
 
         mainviewmodel.productDetails.observe(viewLifecycleOwner) { productDetails ->
             binding.brandTV.text = productDetails.product.brands

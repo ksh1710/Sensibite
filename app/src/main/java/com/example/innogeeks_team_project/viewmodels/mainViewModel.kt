@@ -1,7 +1,9 @@
 package com.example.innogeeks_team_project.viewmodels
 
 import android.annotation.SuppressLint
+import android.app.Application
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,6 +18,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.coroutines.coroutineContext
 
 
 class ProductViewModel(private val apiService: ApiService) : ViewModel() {
@@ -31,7 +34,7 @@ class ProductViewModel(private val apiService: ApiService) : ViewModel() {
                     val details = response.body()
                     _productDetails.postValue(details!!)
                 } else {
-                    // Handle API response error here
+                    //null
                 }
             }
 

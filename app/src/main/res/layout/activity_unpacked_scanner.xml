@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         tools:context=".unpackedScannerActivity">
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text="Image to process :"
             android:textColor="@color/black"
             android:textSize="25sp"
@@ -33,6 +35,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
 
         <TextView
             android:id="@+id/textView9"
@@ -70,9 +73,9 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="19dp"
-            android:text="Common allergens :"
-            android:layout_marginBottom="50dp"
             android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:text="Common allergens :"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/cameraBtn"
@@ -129,8 +132,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#465D0A"
-            android:textColor="@color/white"
             android:text="Open Camera"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/imgbtn"
             app:layout_constraintEnd_toEndOf="@+id/imgbtn"
             app:layout_constraintStart_toStartOf="@+id/imgbtn" />
@@ -139,9 +142,9 @@
             android:id="@+id/imgbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:backgroundTint="#465D0A"
             android:text="Open Gallery"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/mlbtn"
             app:layout_constraintHorizontal_bias="0.5"
@@ -151,13 +154,15 @@
             android:id="@+id/mlbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="Fetch Results"
             android:backgroundTint="#465D0A"
+            android:text="Fetch Results"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imgbtn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>
+
