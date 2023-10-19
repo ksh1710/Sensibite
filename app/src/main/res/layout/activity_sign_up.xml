@@ -15,6 +15,8 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="300dp"
         android:background="#A2CC71"
+        app:hintTextColor="@color/black"
+
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -23,6 +25,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEt"
+            android:textColorHint="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter your Email..."
@@ -32,7 +35,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordLayout"
-
+        app:hintTextColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -58,6 +61,7 @@
         android:id="@+id/confirmPasswordLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+app:hintTextColor="@color/black"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="24dp"
         android:background="#A2CC71"
