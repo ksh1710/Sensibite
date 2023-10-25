@@ -10,6 +10,12 @@
         android:id="@+id/scanFrag"
         android:icon="@drawable/nav_scan_icon"
         android:title="scan" />
+    <item
+        android:id="@+id/profileFrag"
+        android:icon="@drawable/nav_profile_icon"
+        android:title="Profile"
+        />
+
 <!--    <item-->
 <!--        android:id="@+id/reportsFrag"-->
 <!--        android:icon="@drawable/nav_reports_icon"-->

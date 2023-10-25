@@ -20,9 +20,9 @@
 <!--        android:name="com.example.innogeeks_team_project.reportsFrag"-->
 <!--        android:label="fragment_reports"-->
 <!--        tools:layout="@layout/fragment_reports" />-->
-<!--    <fragment-->
-<!--        android:id="@+id/profileFrag"-->
-<!--        android:name="com.example.innogeeks_team_project.profileFrag"-->
-<!--        android:label="fragment_profile"-->
-<!--        tools:layout="@layout/fragment_profile" />-->
+    <fragment
+        android:id="@+id/profileFrag"
+        android:name="com.example.innogeeks_team_project.profileFrag"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

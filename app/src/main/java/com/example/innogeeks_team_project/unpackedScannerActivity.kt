@@ -19,12 +19,17 @@ import androidx.core.content.ContextCompat
 import coil.load
 import com.example.innogeeks_team_project.databinding.ActivityUnpackedScannerBinding
 import com.example.innogeeks_team_project.ml.LiteModelAiyVisionClassifierFoodV11
+import com.example.innogeeks_team_project.ml.TfLiteModel
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
+import org.tensorflow.lite.support.image.ops.ResizeOp
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 
 @Suppress("DEPRECATION")
 class unpackedScannerActivity : AppCompatActivity() {
@@ -51,10 +56,17 @@ class unpackedScannerActivity : AppCompatActivity() {
         }
 
 
+        var imageProcessor =
+            ImageProcessor.Builder().add(ResizeOp(299, 299, ResizeOp.ResizeMethod.BILINEAR)).build()
+
+
+
         binding.mlbtn.setOnClickListener {
             binding.avoidTV.text = " "
             binding.diseaseTV.text = " "
             binding.allergenTV.text = " "
+
+
             val model = LiteModelAiyVisionClassifierFoodV11.newInstance(this)
             bitmap = Bitmap.createScaledBitmap(bitmap, 224, 224, true)
             val image = TensorImage.fromBitmap(bitmap)
@@ -68,22 +80,55 @@ class unpackedScannerActivity : AppCompatActivity() {
             binding.naam.text = probabilityOP.label
 
             if (probabilityOP.label == "Cheese sandwich") {
-                binding.avoidTV.text = "Suffering from phenylketonuria, gluten sensitivity or Lactose Intolerance\n"
-                binding.diseaseTV.text = "Celiac disease(by wheat)\n, itching, hives(in mild cases) or anaphylaxis(severe)"
+                binding.avoidTV.text =
+                    "Suffering from phenylketonuria, gluten sensitivity or Lactose Intolerance\n"
+                binding.diseaseTV.text =
+                    "Celiac disease(by wheat)\n, itching, hives(in mild cases) or anaphylaxis(severe)"
                 binding.allergenTV.text = "Casein (cheese)\n Gluten (bread) \n Glycinin(Soy)"
-            }
-
-            else if (probabilityOP.label == "Samosa") {
-                binding.avoidTV.text = "Suffering from Irritable Bowel Syndrome,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease"
-                binding.diseaseTV.text = "Celiac disease(by wheat)\nskin reactions (hives, itching), gastrointestinal symptoms (nausea, vomiting, diarrhea), respiratory issues (coughing, wheezing), and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
-                binding.allergenTV.text = "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
+            } else if (probabilityOP.label == "Samosa") {
+                binding.avoidTV.text =
+                    "Suffering from Irritable Bowel Syndrome,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease"
+                binding.diseaseTV.text =
+                    "Celiac disease(by wheat)\nskin reactions (hives, itching), gastrointestinal symptoms (nausea, vomiting, diarrhea), respiratory issues (coughing, wheezing), and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
+                binding.allergenTV.text =
+                    "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
 
             } else {
                 Toast.makeText(this, "no information for this item", Toast.LENGTH_SHORT).show()
             }
             model.close()
+
+
+//            val newmodel = TfLiteModel.newInstance(this)
+//
+//
+//            bitmap = Bitmap.createScaledBitmap(bitmap, 224, 224, true)
+//            var image = TensorImage(DataType.FLOAT32)
+//            image.load(bitmap)
+//            image = imageProcessor.process(image)
+//
+//            // Creates inputs for reference.
+//            val inputFeature0 =
+//                TensorBuffer.createFixedSize(intArrayOf(1, 299, 299, 3), DataType.FLOAT32)
+//            inputFeature0.loadBuffer(image.buffer)
+//
+//            // Runs model inference and gets result.
+//            val newoutputs = newmodel.process(inputFeature0)
+//            val outputFeature0 = newoutputs.outputFeature0AsTensorBuffer.floatArray
+////                        var max = 0
+////            outputFeature0.forEachIndexed { index, fl ->
+////                if (outputFeature0[max] < fl) {
+////                    max = index
+////                }
+////            }
+//            Log.d("idk", outputFeature0[0].toString())
+//
+//// Releases model resources if no longer used.
+//            newmodel.close()
         }
+
     }
+
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun getPerm() {

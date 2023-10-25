@@ -14,8 +14,8 @@
 <!--        android:id="@+id/reportsFrag"-->
 <!--        android:icon="@drawable/nav_reports_icon"-->
 <!--        android:title="reports" />-->
-<!--    <item-->
-<!--        android:id="@+id/profileFrag"-->
-<!--        android:icon="@drawable/nav_profile_icon"-->
-<!--        android:title="profile" />-->
+    <item
+        android:id="@+id/profileFrag"
+        android:icon="@drawable/nav_profile_icon"
+        android:title="profile" />
 </menu>
