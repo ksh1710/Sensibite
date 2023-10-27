@@ -66,10 +66,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.innogeeks_team_project.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.values
 
 class SignInActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignInBinding
+//    lateinit var dbref: DatabaseReference
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var progressBar: ProgressBar
 
@@ -77,6 +81,9 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
+//        val uid = firebaseAuth.currentUser?.uid
+//        dbref = FirebaseDatabase.getInstance().getReference("User_Details")
+//
 
         firebaseAuth = FirebaseAuth.getInstance()
         progressBar = binding.signinProgressBar
@@ -105,16 +112,28 @@ class SignInActivity : AppCompatActivity() {
                 }
             } else {
                 Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
+
             }
         }
     }
 
-    override fun onStart() {
-        super.onStart()
+//    override fun onStart() {
+//
+//        firebaseAuth = FirebaseAuth.getInstance()
+//        val currentUser = firebaseAuth.currentUser
+//        if(currentUser != null){
+//            val i = Intent(this,UserDetails::class.java)
+////            startActivity(i)
+//        }
+//        super.onStart()
+//    }
 
-        if (firebaseAuth.currentUser != null) {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-    }
+//    override fun onStart() {
+//        super.onStart()
+//
+//        if(firebaseAuth.currentUser != null){
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//        }
+//    }
 }
