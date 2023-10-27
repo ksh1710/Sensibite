@@ -32,7 +32,9 @@ class UserDetails : AppCompatActivity() {
         binding.saveBtn.setOnClickListener {
             val name = binding.nameTV.text.toString()
             val age = binding.ageTV.text.toString()
-            val user = User(name, age)
+            val email = auth.currentUser?.email
+            val weight = binding.weightTV.text.toString()
+            val user = User(name,email, age,weight)
 //
             if (uid != null ) {
                 dbref.child(uid).setValue(user).addOnCompleteListener {
