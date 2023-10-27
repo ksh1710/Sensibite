@@ -60,7 +60,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class SignUpActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivitySignUpBinding
+    private lateinit var binding:ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var progressBar: ProgressBar
 
@@ -76,8 +76,7 @@ class SignUpActivity : AppCompatActivity() {
             val email = binding.emailEt.text.toString()
             val pass = binding.passET.text.toString()
             val confirmpass = binding.confirmPassEt.text.toString()
-
-            if (email.isNotEmpty() && pass.isNotEmpty() && confirmpass.isNotEmpty()) {
+            if (email.isNotBlank() && pass.isNotBlank() && confirmpass.isNotBlank()) {
                 if (pass == confirmpass) {
                     progressBar.visibility = View.VISIBLE // Show the progress bar
 
@@ -85,7 +84,7 @@ class SignUpActivity : AppCompatActivity() {
                         progressBar.visibility = View.GONE // Hide the progress bar
 
                         if (task.isSuccessful) {
-                            val intent = Intent(this, SignInActivity::class.java)
+                            val intent = Intent(this, UserDetails::class.java)
                             startActivity(intent)
                         } else {
                             Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
@@ -96,7 +95,9 @@ class SignUpActivity : AppCompatActivity() {
                 }
             } else {
                 Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
+
             }
         }
+
     }
 }

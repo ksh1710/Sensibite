@@ -6,7 +6,6 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -16,11 +15,15 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-            android:theme="@style/Theme.Innogeeks_team_project"
-    android:label="@string/app_name"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:theme="@style/Theme.Innogeeks_team_project"
         tools:targetApi="31">
+        <activity
+            android:name=".UserDetails"
+            android:exported="false">
+        </activity>
         <activity
             android:name=".unpackedScannerActivity"
             android:exported="false" />
@@ -39,6 +42,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".SignUpActivity"
