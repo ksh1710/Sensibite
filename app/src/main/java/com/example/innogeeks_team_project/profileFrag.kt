@@ -17,7 +17,7 @@ package com.example.innogeeks_team_project//package com.example.innogeeks_team_p
 
 
 import android.annotation.SuppressLint
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -31,7 +31,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.DatabaseRegistrar
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
@@ -47,7 +46,7 @@ class profileFrag : Fragment() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var uid: String
     private lateinit var user: User
-
+    val loading = customDialogFrag(this)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -65,16 +64,24 @@ class profileFrag : Fragment() {
         dbref = FirebaseDatabase.getInstance().getReference("User_Details")
 
         if (uid.isNotEmpty()) {
+            loading.dialogRunning()
             fetchUserDetails()
         }
         // Handle the logout button click
         logoutButton.setOnClickListener {
+            val sharedPref = activity?.getSharedPreferences("myPref", Context.MODE_PRIVATE)
+            val editor = sharedPref?.edit()
+            editor?.clear()
+            editor?.apply()
+            activity?.finish()
+            Toast.makeText(context, "successfully signed out", Toast.LENGTH_SHORT).show()
+
             // Sign out the user
-            firebaseAuth.signOut()
+//            firebaseAuth.signOut()
             // Redirect to the login or sign-in activity
             // You can replace SignInActivity::class.java with your desired destination
-            val intent = Intent(activity, SignInActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(activity, SignInActivity::class.java)
+//            startActivity(intent)
         }
 
 
@@ -91,6 +98,8 @@ class profileFrag : Fragment() {
                 binding.EmailField.text = user.email
                 binding.ageField.text = "${user.age} years"
                 binding.weightField.text = "${user.weight} kg"
+                loading.dialogClose()
+
             }
 
             override fun onCancelled(error: DatabaseError) {

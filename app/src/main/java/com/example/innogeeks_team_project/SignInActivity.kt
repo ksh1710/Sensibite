@@ -1,32 +1,28 @@
 package com.example.innogeeks_team_project
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.innogeeks_team_project.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.values
 
 class SignInActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignInBinding
 
-//    lateinit var dbref: DatabaseReference
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var progressBar: ProgressBar
+    val loading = customDialog(this)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        val uid = firebaseAuth.currentUser?.uid
-//        dbref = FirebaseDatabase.getInstance().getReference("User_Details")
-//
+
 
         firebaseAuth = FirebaseAuth.getInstance()
         progressBar = binding.signinProgressBar
@@ -35,17 +31,30 @@ class SignInActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
+        val sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE)
+        val useremail = sharedPref.getString("Email", "")
+        val userpass = sharedPref.getString("Password", "")
 
+        if (useremail != "" && userpass != "") {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         binding.button.setOnClickListener {
             val email = binding.emailEt.text.toString()
             val pass = binding.passET.text.toString()
 
             if (email.isNotEmpty() && pass.isNotEmpty()) {
-                progressBar.visibility = View.VISIBLE // Show the progress bar
+//                progressBar.visibility = View.VISIBLE // Show the progress bar
+                loading.dialogRunning()
+                val editor = sharedPref.edit()
+                editor.putString("Email", email)
+                editor.putString("Password", pass)
+                editor.apply()
 
                 firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
-                    progressBar.visibility = View.GONE // Hide the progress bar
-
+//                    progressBar.visibility = View.GONE // Hide the progress bar
+                    loading.dialogClose()
                     if (task.isSuccessful) {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
@@ -59,24 +68,4 @@ class SignInActivity : AppCompatActivity() {
             }
         }
     }
-
-//    override fun onStart() {
-//
-//        firebaseAuth = FirebaseAuth.getInstance()
-//        val currentUser = firebaseAuth.currentUser
-//        if(currentUser != null){
-//            val i = Intent(this,UserDetails::class.java)
-////            startActivity(i)
-//        }
-//        super.onStart()
-//    }
-
-//    override fun onStart() {
-//        super.onStart()
-//
-//        if(firebaseAuth.currentUser != null){
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//        }
-//    }
 }

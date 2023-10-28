@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/headingfont"
         android:text="SENSIBITE"
+        android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,6 +29,8 @@
         android:background="#A2CC71"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -36,6 +39,7 @@
             android:id="@+id/emailEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:hint="Enter your Email..."
             android:textColor="@color/black"
             android:inputType="textEmailAddress" />
@@ -66,7 +70,13 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailLayout"
+        app:hintTextColor="@color/black"
+
+        app:boxStrokeColor="@color/black"
         app:passwordToggleEnabled="true">
+
+<!--            android:outlineAmbientShadowColor="@color/black"-->
+<!--            android:outlineSpotShadowColor="@color/black"-->
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passET"
