@@ -22,45 +22,23 @@
         tools:targetApi="31">
         <activity
             android:name=".UserDetails"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".unpackedScannerActivity"
             android:exported="false" />
         <activity
-            android:name=".activity_home"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".SignInActivity"
             android:exported="true">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
         </activity>
         <activity
             android:name=".SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".each_item"
-            android:exported="false"
-            android:label="@string/title_activity_each_item"
-            android:theme="@style/Theme.Innogeeks_team_project.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".camera_wali_activity"
-            android:exported="false" />
-        <activity
-            android:name=".Scanner"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

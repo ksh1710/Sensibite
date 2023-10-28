@@ -1,68 +1,11 @@
 {
   "project_info": {
     "project_number": "937916001778",
+    "firebase_url": "https://login-signup-firebase-5ede9-default-rtdb.firebaseio.com",
     "project_id": "login-signup-firebase-5ede9",
     "storage_bucket": "login-signup-firebase-5ede9.appspot.com"
   },
   "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:937916001778:android:0de709a1aedc002c61cf6b",
-        "android_client_info": {
-          "package_name": "com.example.foodallergy"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "937916001778-kv42aokvr6fd54h8hp3subokhbhbeeih.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBRzvRVAylLxoLJIRaq-MnbxRlPuxeJD1A"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "937916001778-kv42aokvr6fd54h8hp3subokhbhbeeih.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:937916001778:android:547bcabc45502cd661cf6b",
-        "android_client_info": {
-          "package_name": "com.example.foodapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "937916001778-kv42aokvr6fd54h8hp3subokhbhbeeih.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBRzvRVAylLxoLJIRaq-MnbxRlPuxeJD1A"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "937916001778-kv42aokvr6fd54h8hp3subokhbhbeeih.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:937916001778:android:c04a6237422f605d61cf6b",
