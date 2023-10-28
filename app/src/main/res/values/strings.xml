@@ -20,4 +20,5 @@
     <string name="RusPrice">MRP : ₹ 90</string>
     <string name="price">MRP : ₹ 40</string>
     <string name="det">These chips are naturally gluten-free and have no artificial ingredients. </string>
+    <string name="fetch_results">Fetch Results</string>
 </resources>
