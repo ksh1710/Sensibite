@@ -63,6 +63,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var binding:ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var progressBar: ProgressBar
+    val loading = customDialog(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,16 +73,22 @@ class SignUpActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         progressBar = binding.signupProgressBar
 
+        binding.loginPg.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.button.setOnClickListener {
             val email = binding.emailEt.text.toString()
             val pass = binding.passET.text.toString()
             val confirmpass = binding.confirmPassEt.text.toString()
             if (email.isNotBlank() && pass.isNotBlank() && confirmpass.isNotBlank()) {
                 if (pass == confirmpass) {
-                    progressBar.visibility = View.VISIBLE // Show the progress bar
-
+//                    progressBar.visibility = View.VISIBLE
+                    loading.dialogRunning()
                     firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
-                        progressBar.visibility = View.GONE // Hide the progress bar
+                        loading.dialogClose()
+//                        progressBar.visibility = View.GONE
 
                         if (task.isSuccessful) {
                             val intent = Intent(this, UserDetails::class.java)
