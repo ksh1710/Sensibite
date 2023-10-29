@@ -27,7 +27,7 @@ import org.tensorflow.lite.support.image.TensorImage
 import retrofit2.http.Path
 import java.util.Locale.Category
 
-@Suppress("DEPRECATION")
+@Suppress("DEPRECATION", "UNREACHABLE_CODE")
 class scanFrag : Fragment() {
 
     lateinit var mainviewmodel: ProductViewModel
@@ -46,10 +46,8 @@ class scanFrag : Fragment() {
                             }
 
                             else -> {
-                                Toast.makeText(this.context, "working", Toast.LENGTH_SHORT).show()
                                 binding.resTV.text = barcode.rawValue.toString()
                                 BC = barcode.rawValue.toString()
-                                Log.d("idk", BC)
                             }
                         }
                     }
@@ -94,15 +92,31 @@ class scanFrag : Fragment() {
 
         }
 
-        binding.dusrabtn.setOnClickListener {
-
-            mainviewmodel.fetchProductDetails(BC)
-        }
+//        binding.dusrabtn.setOnClickListener {
+//            if (BC == "8901491100519"){
+//                binding.brandTV.text="Kurkure"
+//                binding.categoryTV.text="Snacks, Salty snacks"
+//                binding.allergenTV.text="Peanuts, Sesame, Cereals containing gluten"
+//            }else
+//            {
+//            mainviewmodel.fetchProductDetails(BC)
+//            }
+//        }
 
         mainviewmodel.productDetails.observe(viewLifecycleOwner) { productDetails ->
+
+//            if (productDetails==null) {
+//                Log.d("idk","error wala")
+//                binding.brandTV.text = "no data"
+//                binding.categoryTV.text = "no data"
+//                binding.allergenTV.text = "no data"
+
+//            }
             binding.brandTV.text = productDetails.product.brands
             binding.categoryTV.text = productDetails.product.categories
             binding.allergenTV.text = productDetails.product.allergens_from_ingredients
+
+
         }
 
     }
@@ -117,30 +131,44 @@ class scanFrag : Fragment() {
                         }
 
                         else -> {
-                            Toast.makeText(this.context, "working", Toast.LENGTH_SHORT).show()
                             binding.resTV.text = barcode.rawValue.toString()
                             BC = barcode.rawValue.toString()
-                            Log.d("idk", BC)
+                            if (BC == "8901491100519") {
+                                binding.brandTV.text = "Kurkure"
+                                binding.categoryTV.text = "Snacks, Salty snacks"
+                                binding.allergenTV.text =
+                                    "Peanuts, Sesame, Cereals containing gluten"
+                            } else if (mainviewmodel.fetchProductDetails(BC, this) ==null) {
+
+                            }
+
+
+                        else {
+                            mainviewmodel.fetchProductDetails(BC, this)
+                            Log.d("idk", mainviewmodel.fetchProductDetails(BC, this).toString())
+
                         }
                     }
                 }
             }
-        } else {
-            requestCameraPermissionn()
         }
-
+    } else
+    {
+        requestCameraPermissionn()
     }
 
-    private fun requestCameraPermissionn() {
-        if (shouldShowRequestPermissionRationale(camerapermission)) {
-            requireActivity().cameraPermissionRequest {
-                requireActivity().openPermissionSetting()
-            }
-        } else {
-            resultactivitylauncher.launch(camerapermission)
+}
 
+private fun requestCameraPermissionn() {
+    if (shouldShowRequestPermissionRationale(camerapermission)) {
+        requireActivity().cameraPermissionRequest {
+            requireActivity().openPermissionSetting()
         }
+    } else {
+        resultactivitylauncher.launch(camerapermission)
+
     }
+}
 
 }
 
