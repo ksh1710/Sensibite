@@ -93,38 +93,43 @@ class unpackedScannerActivity : AppCompatActivity() {
                 binding.allergenTV.text =
                     "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
 
+            } else if (probabilityOP.label == "Club sandwich") {
+                binding.avoidTV.text =
+                    "Suffering from Irritable Bowel Syndrome,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease"
+                binding.diseaseTV.text =
+                    "Celiac disease(by wheat)\nskin reactions (hives, itching), gastrointestinal symptoms (nausea, vomiting, diarrhea), respiratory issues (coughing, wheezing), and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
+                binding.allergenTV.text =
+                    "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
+
+            } else if (probabilityOP.label == "Gulab jamun") {
+                binding.avoidTV.text =
+                    "Suffering from Irritable Bowel Syndrome,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease"
+                binding.diseaseTV.text =
+                    "Celiac disease(by wheat)\nskin reactions (hives, itching), gastrointestinal symptoms (nausea, vomiting, diarrhea), respiratory issues (coughing, wheezing), and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
+                binding.allergenTV.text =
+                    "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
+
+            } else if (probabilityOP.label == "Jalebi") {
+                binding.avoidTV.text =
+                    "Suffering from Irritable Bowel Syndrome,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease"
+                binding.diseaseTV.text =
+                    "Celiac disease(by wheat)\nskin reactions (hives, itching), gastrointestinal symptoms (nausea, vomiting, diarrhea), respiratory issues (coughing, wheezing), and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
+                binding.allergenTV.text =
+                    "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
+
+            } else if (probabilityOP.label == "Jalebi") {
+                binding.avoidTV.text =
+                    "Suffering from Irritable Bowel Syndrome,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease"
+                binding.diseaseTV.text =
+                    "Celiac disease(by wheat)\nskin reactions (hives, itching), gastrointestinal symptoms (nausea, vomiting, diarrhea), respiratory issues (coughing, wheezing), and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
+                binding.allergenTV.text =
+                    "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
+
             } else {
                 Toast.makeText(this, "no information for this item", Toast.LENGTH_SHORT).show()
             }
             model.close()
 
-
-//            val newmodel = TfLiteModel.newInstance(this)
-//
-//
-//            bitmap = Bitmap.createScaledBitmap(bitmap, 224, 224, true)
-//            var image = TensorImage(DataType.FLOAT32)
-//            image.load(bitmap)
-//            image = imageProcessor.process(image)
-//
-//            // Creates inputs for reference.
-//            val inputFeature0 =
-//                TensorBuffer.createFixedSize(intArrayOf(1, 299, 299, 3), DataType.FLOAT32)
-//            inputFeature0.loadBuffer(image.buffer)
-//
-//            // Runs model inference and gets result.
-//            val newoutputs = newmodel.process(inputFeature0)
-//            val outputFeature0 = newoutputs.outputFeature0AsTensorBuffer.floatArray
-////                        var max = 0
-////            outputFeature0.forEachIndexed { index, fl ->
-////                if (outputFeature0[max] < fl) {
-////                    max = index
-////                }
-////            }
-//            Log.d("idk", outputFeature0[0].toString())
-//
-//// Releases model resources if no longer used.
-//            newmodel.close()
         }
 
     }

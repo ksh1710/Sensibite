@@ -15,7 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "937916001778-kv42aokvr6fd54h8hp3subokhbhbeeih.apps.googleusercontent.com",
+          "client_id": "937916001778-urd15ln3mgbh1pptg6hdhsk55edveua7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.innogeeks_team_project",
+            "certificate_hash": "ef2253d0041090c89190e8bdc85df83a1ac9a1d8"
+          }
+        },
+        {
+          "client_id": "937916001778-omi4nhruoojhl9mp1fpu92tammirt5h9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
