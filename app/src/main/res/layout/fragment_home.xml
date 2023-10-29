@@ -41,12 +41,11 @@
 
         <androidx.appcompat.widget.SearchView
             android:layout_width="300dp"
-
-            app:queryHint="Search for healthy..."
             android:layout_height="wrap_content"
+            app:queryHint="Search for healthy..."
             android:background="@drawable/custom_button"
             app:layout_constraintBottom_toTopOf="@+id/textView18"
-            android:backgroundTint="#FFEBA3"
+            android:backgroundTint="#ffffff"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +55,7 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_marginBottom="24dp"
             android:text="Healthy food alternatives"
             android:textColor="@color/black"
