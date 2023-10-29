@@ -100,7 +100,7 @@ class unpackedScannerActivity : AppCompatActivity() {
                 binding.allergenTV.text =
                     "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
 
-            } else if (probabilityOP.label == "Ham burger") {
+            } else if (probabilityOP.label == "Hamit burger") {
                 binding.avoidTV.text =
                     "Suffering from Angiodema,Red meat allergen , Diabetes, Hypertension, Cardiovascular Disease, Constipation"
                 binding.diseaseTV.text =
