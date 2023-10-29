@@ -120,7 +120,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="Crafted with code by Kshitiz Agarwal"
+            android:text="Crafted with code by Binary Brains"
             android:textColor="#77763E"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
