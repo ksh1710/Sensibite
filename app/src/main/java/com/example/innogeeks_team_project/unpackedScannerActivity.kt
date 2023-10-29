@@ -85,7 +85,14 @@ class unpackedScannerActivity : AppCompatActivity() {
                 binding.diseaseTV.text =
                     "Celiac disease(by wheat)\n, itching, hives(in mild cases) or anaphylaxis(severe)"
                 binding.allergenTV.text = "Casein (cheese)\n Gluten (bread) \n Glycinin(Soy)"
-            } else if (probabilityOP.label == "Samosa") {
+            }
+            else if (probabilityOP.label == "Club sandwich") {
+            binding.avoidTV.text =
+                "Suffering from phenylketonuria, gluten sensitivity or Egg allergies\n"
+            binding.diseaseTV.text =
+                "Celiac disease(by wheat)\n, itching, hives(in mild cases) or anaphylaxis(severe)"
+            binding.allergenTV.text = "Gluten (bread) \n Glycinin(Soy)\n Egg(Myonnaise)"
+        } else if (probabilityOP.label == "Samosa") {
                 binding.avoidTV.text =
                     "Suffering from Irritable Bowel Syndrome,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease"
                 binding.diseaseTV.text =
@@ -93,37 +100,37 @@ class unpackedScannerActivity : AppCompatActivity() {
                 binding.allergenTV.text =
                     "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
 
-            } else if (probabilityOP.label == "Club sandwich") {
+            } else if (probabilityOP.label == "Hamit burger") {
                 binding.avoidTV.text =
-                    "Suffering from Irritable Bowel Syndrome,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease"
+                    "Suffering from Angiodema,Red meat allergen , Diabetes, Hypertension, Cardiovascular Disease, Constipation"
                 binding.diseaseTV.text =
-                    "Celiac disease(by wheat)\nskin reactions (hives, itching), gastrointestinal symptoms (nausea, vomiting, diarrhea), respiratory issues (coughing, wheezing), and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
+                    "skin reactions (hives, itching),\ngastrointestinal symptoms (nausea, vomiting, diarrhea)\n,Celiac disease(by wheat)\n and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
                 binding.allergenTV.text =
                     "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
 
             } else if (probabilityOP.label == "Gulab jamun") {
                 binding.avoidTV.text =
-                    "Suffering from Irritable Bowel Syndrome,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease"
+                    "Suffering from Allergic from tree nuts,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Irritable Bowel Syndrome"
+                binding.diseaseTV.text =
+                    "skin reactions (hives, itching),Hormonal (imbalance), and in severe cases, anaphylaxis.\n, gastrointestinal symptoms (nausea, vomiting, diarrhea)"
+                binding.allergenTV.text =
+                    "Gluten(Maida/wheat),\n Glycinin( soyabean  oil),\n  Albumins and profilins(tree nuts)\n vicilins, legumins,"
+
+            } else if (probabilityOP.label == "Jalebi") {
+                binding.avoidTV.text =
+                    "Suffering Hepatities B,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease, Gallbladder Issues,"
                 binding.diseaseTV.text =
                     "Celiac disease(by wheat)\nskin reactions (hives, itching), gastrointestinal symptoms (nausea, vomiting, diarrhea), respiratory issues (coughing, wheezing), and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
                 binding.allergenTV.text =
                     "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
 
-            } else if (probabilityOP.label == "Jalebi") {
+            } else if (probabilityOP.label == "Hot dog") {
                 binding.avoidTV.text =
-                    "Suffering from Irritable Bowel Syndrome,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease"
+                    "Suffering from Pancreatitis, Gastroesophageal Reflux Disease,Constipation,Gallbladder Issues, Hypertension, Lathargy"
                 binding.diseaseTV.text =
-                    "Celiac disease(by wheat)\nskin reactions (hives, itching), gastrointestinal symptoms (nausea, vomiting, diarrhea), respiratory issues (coughing, wheezing), and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
+                    "Celiac disease(by wheat)\n gastrointestinal symptoms (nausea, vomiting, diarrhea),skin reactions (hives, itching), and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
                 binding.allergenTV.text =
-                    "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
-
-            } else if (probabilityOP.label == "Jalebi") {
-                binding.avoidTV.text =
-                    "Suffering from Irritable Bowel Syndrome,Gallbladder Issues,Pancreatitis,Gastroesophageal Reflux Disease , Diabetes, Hypertension, Cardiovascular Disease"
-                binding.diseaseTV.text =
-                    "Celiac disease(by wheat)\nskin reactions (hives, itching), gastrointestinal symptoms (nausea, vomiting, diarrhea), respiratory issues (coughing, wheezing), and in severe cases, anaphylaxis.\n Oral Allergy Syndrome (potatoes)"
-                binding.allergenTV.text =
-                    "Gluten(shell),\n Glycinin( soyabean  oil),\n vicilins, legumins, albumins and profilins(tree nuts)"
+                    "Gluten(Bread),\n Glycinin(soy),\n vicilins, legumins, Red meat"
 
             } else {
                 Toast.makeText(this, "no information for this item", Toast.LENGTH_SHORT).show()
