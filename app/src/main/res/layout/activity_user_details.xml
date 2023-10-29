@@ -11,9 +11,9 @@
     <ImageView
         android:layout_width="369dp"
         android:layout_height="218dp"
-        android:textSize="18dp"
         android:layout_marginBottom="104dp"
         android:src="@drawable/details_border"
+        android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/nameTV"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
@@ -23,24 +23,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="68dp"
         android:text="Name:"
-        android:textSize="18dp"
         android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nameTV"
+        app:layout_constraintEnd_toStartOf="@+id/nameTV"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toTopOf="@+id/nameTV" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="84dp"
         android:text="Age:"
-        android:textSize="18dp"
         android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ageTV"
+        app:layout_constraintEnd_toStartOf="@+id/ageTV"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toTopOf="@+id/ageTV" />
 
     <Button
         android:id="@+id/saveBtn"
@@ -60,55 +63,62 @@
         android:id="@+id/nameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="7dp"
         android:background="@drawable/custom_box_border"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="text"
-        app:layout_constraintStart_toStartOf="@+id/textView17"
-        app:layout_constraintTop_toTopOf="@+id/textView17" />
+        android:padding="7dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/ageTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <EditText
         android:id="@+id/ageTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
         android:background="@drawable/custom_box_border"
-        android:padding="7dp"
         android:ems="10"
         android:hint="age"
         android:inputType="text"
+        android:padding="7dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/weightTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView20"
-        app:layout_constraintTop_toTopOf="@+id/textView20" />
+        app:layout_constraintTop_toBottomOf="@+id/nameTV" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="68dp"
         android:text="Weight:"
-        android:textSize="18dp"
         android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/weightTV"
+        app:layout_constraintEnd_toStartOf="@+id/weightTV"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintTop_toTopOf="@+id/weightTV" />
 
     <EditText
         android:id="@+id/weightTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_box_border"
-        android:padding="7dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Weight"
         android:inputType="text"
-        app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toTopOf="@+id/textView15" />
+        android:padding="7dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/saveBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/ageTV" />
 
 
     <!--        android:textStyle="bold"-->

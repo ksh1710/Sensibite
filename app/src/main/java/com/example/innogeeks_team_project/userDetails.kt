@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.text.isDigitsOnly
 import com.example.innogeeks_team_project.databinding.ActivitySignInBinding
 import com.example.innogeeks_team_project.databinding.ActivityUserDetailsBinding
 import com.example.innogeeks_team_project.models.User
@@ -35,8 +36,8 @@ class UserDetails : AppCompatActivity() {
             val email = auth.currentUser?.email
             val weight = binding.weightTV.text.toString()
             val user = User(name,email, age,weight)
-//
-            if (uid != null ) {
+
+            if (uid != null && name.isNotBlank() && age.isNotBlank() && email!!.isNotBlank() && weight.isNotBlank()) {
                 dbref.child(uid).setValue(user).addOnCompleteListener {
                     if (it.isSuccessful) {
                         val intent = Intent(this, MainActivity::class.java)
