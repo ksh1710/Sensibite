@@ -39,3 +39,7 @@ We welcome contributions to enhance Sensibite's features and usability. Follow o
 Sensibite is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute the application following the terms of the license.
 
 Stay allergen-aware and make your food choices smarter with Sensibite! 🌐🥦🚀
+
+## Contributors
+
+[![Contributors](https://contrib.rocks/image?repo=ksh1710/WorldLens-hackcbs)](https://github.com/ksh1710/WorldLens-hackcbs/graphs/contributors)
