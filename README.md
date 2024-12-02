@@ -18,10 +18,9 @@ Sensibite is a revolutionary mobile app designed to ensure food safety by provid
 
 ## Getting Started
 
-1. Download and install Sensibite from the [Google Play Store](#).
-2. Open the app and use the barcode scanning feature for packaged foods.
-3. For unpackaged foods, take advantage of the machine learning-powered scanning option.
-4. Receive instant information about allergens and make informed decisions about your food choices.
+1. Open the app and use the barcode scanning feature for packaged foods.
+2. For unpackaged foods, take advantage of the machine learning-powered scanning option.
+3. Receive instant information about allergens and make informed decisions about your food choices.
 
 ## Technology Stack
 
